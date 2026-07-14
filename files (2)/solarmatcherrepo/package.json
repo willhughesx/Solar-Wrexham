@@ -1,9 +1,0 @@
-{
-  "name": "solarmatcher",
-  "version": "1.0.0",
-  "private": true,
-  "description": "SolarMatcher - UK solar installer lead generation platform (static site).",
-  "scripts": {
-    "build": "node build/build.js"
-  }
-}
