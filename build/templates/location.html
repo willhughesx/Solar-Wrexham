@@ -23,11 +23,28 @@
         <h1>{{heroHeadline}}</h1>
         <p class="hero-sub">{{heroSub}}</p>
         <div class="hero-actions">
-          <a href="#quote-form" class="btn btn-primary">Get a free solar quote</a>
+          <a href="#quote-form" class="btn btn-primary">Find a local installer</a>
           <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
         </div>
+
+        <!-- POSTCODE-FIRST TEASER -->
+        <form class="postcode-teaser" id="postcodeTeaserForm" aria-label="Quick postcode lookup">
+          <label for="postcodeTeaser">Enter your postcode</label>
+          <div class="postcode-teaser-row">
+            <input
+              type="text"
+              id="postcodeTeaser"
+              name="postcodeTeaser"
+              placeholder="e.g. {{postcodeExample}}"
+              autocomplete="postal-code"
+              aria-label="Postcode"
+            >
+            <button type="submit" class="btn btn-primary">Find installers</button>
+          </div>
+        </form>
+
         <p class="hero-note">
-          Free to enquire. No obligation. We simply pass your details to a suitable local solar installer covering {{name}}.
+          Free to use &bull; No obligation &bull; Your enquiry is only shared with a suitable installer covering {{name}}.
         </p>
       </div>
 
@@ -68,10 +85,124 @@
     </div>
   </section>
 
-  <!-- BENEFITS -->
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <h2>How SolarMatcher works</h2>
+      <p class="section-sub">
+        SolarMatcher doesn't install solar panels &mdash; we connect your enquiry with a suitable local installer
+        covering {{name}}. Here's the process from enquiry to quote.
+      </p>
+
+      <ol class="steps">
+        <li class="step">
+          <span class="step-number">1</span>
+          <h3>Tell us about your property</h3>
+          <p>Fill in the short form below with a few details about your property and what you're hoping to achieve.</p>
+        </li>
+        <li class="step">
+          <span class="step-number">2</span>
+          <h3>We match your enquiry with a local installer</h3>
+          <p>Your enquiry is passed to a suitable solar installer covering the {{name}} area &mdash; not sent out everywhere at once.</p>
+        </li>
+        <li class="step">
+          <span class="step-number">3</span>
+          <h3>The installer contacts you to discuss the project</h3>
+          <p>They'll be in touch directly to talk through your roof, options and a free, no-obligation quote.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- LOCAL COVERAGE & TRUST -->
+  <section class="trust" id="coverage">
+    <div class="container trust-inner">
+      <div class="trust-copy">
+        <h2>Solar installer coverage around {{name}}</h2>
+        <p>
+          SolarMatcher matches enquiries from homeowners in {{name}} and the surrounding {{region}} area with a
+          suitable local installer. We don't have physical branches in each town &mdash; this is a matching service,
+          and coverage depends on installer availability in your area.
+        </p>
+        <ul class="trust-list coverage-list">
+          {{#each nearbyAreaItems}}
+          <li>{{this.area}}</li>
+          {{/each}}
+        </ul>
+        <p style="margin-top: 20px;">
+          Enquiries are only shared with a solar installer covering your area, and there's no cost or obligation to
+          submit an enquiry. You'll speak directly with the installer, who can answer questions specific to your
+          roof, property and, where relevant, their accreditations and previous projects.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL SEO / GUIDE CONTENT -->
+  <section class="how-it-works" id="finding-an-installer">
+    <div class="container">
+      <h2>Finding a solar installer in Wrexham</h2>
+      <p class="section-sub">
+        A few things worth thinking about before you enquire, whether you're comparing local solar companies
+        yourself or letting SolarMatcher pass your details to one.
+      </p>
+
+      <div class="steps" style="grid-template-columns: 1fr 1fr;">
+        <div class="step">
+          <h3>What to consider when choosing an installer</h3>
+          <p>
+            Look for solar panel installers with relevant accreditations, clear warranties and a track record of
+            domestic installations in your area. It's worth asking any installer &mdash; whether found through
+            SolarMatcher or elsewhere &mdash; about their certifications and previous local projects before you commit.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Property and roof suitability</h3>
+          <p>
+            Roof orientation, pitch, shading and structural condition all affect how well solar panels will perform
+            on your home. Wrexham has a wide mix of property types, so a local installer covering the area is best
+            placed to assess what's realistic for your specific roof.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Battery storage</h3>
+          <p>
+            Many installers will discuss battery storage alongside a standard solar panel quote, letting you store
+            more of the electricity you generate for use in the evening. Whether it makes sense for your household
+            is something to raise directly with the installer you're matched with.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Installation timescales</h3>
+          <p>
+            Once a project is scheduled, a typical domestic installation takes one to two days, though this can vary
+            with system size, roof access and the installer's current workload.
+          </p>
+        </div>
+        <div class="step">
+          <h3>What information you'll likely be asked for</h3>
+          <p>
+            Expect questions about your property type, roof type, rough electricity usage and any interest in battery
+            storage. Having this in mind before you enquire &mdash; or including it in the message field on our
+            form &mdash; can help a local installer give you a more accurate initial quote.
+          </p>
+        </div>
+        <div class="step">
+          <h3>Why comparing suitability matters</h3>
+          <p>
+            Not every solar company or system is the right fit for every property. Rather than sending your details
+            everywhere at once, SolarMatcher aims to pass your enquiry to one local solar installer covering
+            {{name}}, so you can have a proper conversation about whether the project suits your home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS (condensed) -->
   <section class="benefits" id="benefits">
     <div class="container">
-      <h2>Why homeowners in {{name}} are considering solar</h2>
+      <h2>Benefits of going solar</h2>
       <p class="section-sub">A quick look at what a well-installed system can offer your household.</p>
 
       <div class="benefit-grid">
@@ -83,16 +214,6 @@
           </div>
           <h3>Lower electricity bills</h3>
           <p>Generate your own electricity during daylight hours and reduce how much you need to buy from the grid.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F8A5F" stroke-width="2">
-              <path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/>
-            </svg>
-          </div>
-          <h3>A more energy-efficient home</h3>
-          <p>Solar panels can help reduce how much electricity your household needs to buy from the grid.</p>
         </div>
 
         <div class="benefit-card">
@@ -114,72 +235,6 @@
           <h3>Lower carbon footprint</h3>
           <p>Generating clean electricity at home reduces your household's reliance on fossil-fuel power generation.</p>
         </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F8A5F" stroke-width="2">
-              <rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 4v5"/>
-            </svg>
-          </div>
-          <h3>Options to suit your roof</h3>
-          <p>Local installers can advise on panel type, layout and battery options based on your roof and usage.</p>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1F8A5F" stroke-width="2">
-              <path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/>
-            </svg>
-          </div>
-          <h3>A clear, local process</h3>
-          <p>Your enquiry is matched with an installer who knows {{name}} roofs, planning rules and local conditions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <h2>How it works</h2>
-      <p class="section-sub">A simple, three-step process from enquiry to quote.</p>
-
-      <ol class="steps">
-        <li class="step">
-          <span class="step-number">1</span>
-          <h3>Tell us about your home</h3>
-          <p>Fill in the short form below with a few details about your property and what you're hoping to achieve.</p>
-        </li>
-        <li class="step">
-          <span class="step-number">2</span>
-          <h3>We pass your enquiry to a local installer</h3>
-          <p>Your enquiry is passed to a suitable solar installer covering the {{name}} area.</p>
-        </li>
-        <li class="step">
-          <span class="step-number">3</span>
-          <h3>Get your free, no-obligation quote</h3>
-          <p>The installer will contact you directly to discuss your roof, options and pricing &mdash; with no pressure to proceed.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- TRUST -->
-  <section class="trust" id="trust">
-    <div class="container trust-inner">
-      <div class="trust-copy">
-        <h2>A straightforward way to explore solar</h2>
-        <p>
-          We know installing solar panels is a big decision, so this page is designed to make the first step easy.
-          Submitting the form below does not commit you to anything &mdash; it simply lets a local installer get in
-          touch to talk through your options.
-        </p>
-        <ul class="trust-list">
-          <li>Enquiries are only shared with a solar installer covering your area, so your details aren't sent everywhere.</li>
-          <li>There's no cost or obligation to enquire, and no pressure to proceed with any quote you receive.</li>
-          <li>You'll speak directly with the installer, who can answer questions specific to your roof and property.</li>
-          <li>Ask your installer about previous projects, warranties and relevant accreditations.</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -203,7 +258,7 @@
   <section class="quote-section" id="quote-form">
     <div class="container quote-inner">
       <div class="quote-intro">
-        <h2>Get your free solar quote</h2>
+        <h2>Find a solar installer in {{name}}</h2>
         <p>
           Answer a few quick questions and we'll pass your enquiry to a solar installer covering {{name}} and the
           surrounding area. It takes about a minute.
