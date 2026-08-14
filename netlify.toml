@@ -1,3 +1,9 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+[[redirects]]
+  from = "https://solar-wrexham.netlify.app/*"
+  to = "https://solarmatcher.co.uk/:splat"
+  status = 301
+  force = true
