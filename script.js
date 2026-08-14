@@ -28,6 +28,39 @@ if (yearSpan) {
 }
 
 // ============================
+// Postcode-first hero teaser
+// Scrolls to the full enquiry form and pre-fills the postcode field.
+// Only present on templates that include the teaser markup, so this
+// is a no-op on pages without it (e.g. success.html).
+// ============================
+const postcodeTeaserForm = document.getElementById('postcodeTeaserForm');
+
+if (postcodeTeaserForm) {
+  postcodeTeaserForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const teaserInput = document.getElementById('postcodeTeaser');
+    const postcodeField = document.getElementById('postcode');
+
+    if (teaserInput && postcodeField && teaserInput.value.trim()) {
+      postcodeField.value = teaserInput.value.trim();
+    }
+
+    const quoteForm = document.getElementById('quote-form');
+    if (quoteForm) {
+      quoteForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Give the scroll a moment to land before moving focus, so the next
+    // field the user needs (full name) is ready to type into.
+    const fullNameField = document.getElementById('fullName');
+    if (fullNameField) {
+      window.setTimeout(() => fullNameField.focus(), 500);
+    }
+  });
+}
+
+// ============================
 // Enquiry form validation
 // ============================
 const form = document.getElementById('enquiryForm');

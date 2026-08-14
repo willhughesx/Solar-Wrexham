@@ -239,6 +239,59 @@ img, svg { max-width: 100%; display: block; }
   margin: 0;
 }
 
+/* Postcode-first teaser in the hero */
+.postcode-teaser {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin: 20px 0 18px;
+  max-width: 460px;
+}
+
+.postcode-teaser label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.postcode-teaser-row {
+  display: flex;
+  gap: 10px;
+}
+
+.postcode-teaser-row input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 11px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: var(--white);
+  color: var(--text);
+  min-width: 0;
+}
+
+.postcode-teaser-row input:focus {
+  outline: none;
+  border-color: var(--green-light);
+  box-shadow: 0 0 0 3px rgba(47, 175, 120, 0.25);
+}
+
+.postcode-teaser-row .btn {
+  flex-shrink: 0;
+  padding: 11px 18px;
+}
+
+@media (max-width: 480px) {
+  .postcode-teaser-row {
+    flex-direction: column;
+  }
+}
+
 .hero-visual { display: flex; justify-content: center; }
 .house-illustration { width: 100%; max-width: 440px; }
 
@@ -366,6 +419,30 @@ section { padding: 80px 0; }
   height: 16px;
   border-radius: 50%;
   background: var(--green-light);
+}
+
+/* Coverage list: compact tag grid instead of bulleted lines */
+.coverage-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 20px 0 0;
+  list-style: none;
+}
+
+.coverage-list li {
+  position: static;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--white);
+}
+
+.coverage-list li::before {
+  content: none;
 }
 
 /* ============================
