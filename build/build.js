@@ -230,8 +230,14 @@ function buildLocationPages() {
       ? `${location.name}, ${location.nearbyAreas.join(', ')} and surrounding parts of ${location.region}.`
       : `${location.name} and surrounding parts of ${location.region}.`;
 
+    // render.js's {{#each}} only merges plain object items into scope, so
+    // string arrays (like nearbyAreas) need wrapping to be usable as
+    // {{this.area}} inside a template loop.
+    const nearbyAreaItems = (location.nearbyAreas || []).map((area) => ({ area }));
+
     const data = {
       ...location,
+      nearbyAreaItems,
       siteUrl: SITE_URL,
       pageTitle: location.metaTitle,
       metaDescription: location.metaDescription,
